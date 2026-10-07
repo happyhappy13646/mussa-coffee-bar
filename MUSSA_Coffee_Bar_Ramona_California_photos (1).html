@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MUSSA Coffee Bar | Ramona, California</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--olive:#3b4a2f;--olive2:#566a44;--cream:#f7f1e3;--beige:#e8dcc4;--brown:#4a3022;--gold:#b8963f;--bg:#f7f1e3;--card:#fffaf0;--ink:#2b2118;--mut:#6f6354;--line:rgba(74,48,34,.15);--sf:'Fraunces',Georgia,serif;--ss:'DM Sans',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1f2419;--card:#2a3022;--ink:#f1e9d6;--mut:#b5ab97;--line:rgba(241,233,214,.16);--beige:#3a4130}}
+:root[data-theme=dark]{--bg:#1f2419;--card:#2a3022;--ink:#f1e9d6;--mut:#b5ab97;--line:rgba(241,233,214,.16);--beige:#3a4130}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--ss)}
+h1,h2,h3{font-family:var(--sf);font-weight:400;line-height:1.05;margin:0}
+h2{font-size:clamp(2.2rem,5vw,4rem)}
+a{color:inherit}button{font:inherit;cursor:pointer}
+.wrap{max-width:1200px;margin:auto;padding:0 22px}
+section{padding:96px 0}
+.btn{border:0;border-radius:99px;padding:14px 26px;font-weight:600;background:var(--olive);color:#f7f1e3;text-decoration:none;display:inline-block;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--olive2)}
+.btn.o{background:none;border:1px solid currentColor;color:inherit}
+.btn.g{background:var(--gold);color:#201808}
+.btn.sm{padding:9px 16px;font-size:.88rem}
+.mut{color:var(--mut)}
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 97%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:24px;height:68px}
+.logo{font:600 1.4rem var(--sf);letter-spacing:.08em;text-decoration:none}
+.links{display:flex;gap:22px;margin-left:auto;align-items:center}
+.links a{text-decoration:none;font-size:.95rem}.links a:hover{color:var(--gold)}
+#cartBtn{position:relative;background:none;border:1px solid var(--line);border-radius:99px;width:44px;height:44px;font-size:1.1rem}
+#cartCount{position:absolute;top:-6px;right:-6px;background:var(--gold);color:#201808;border-radius:99px;font-size:.72rem;min-width:20px;height:20px;line-height:20px;font-weight:700}
+.bump{animation:bump .5s}@keyframes bump{40%{transform:scale(1.25) rotate(-8deg)}}
+#burger{display:none;background:none;border:0;font-size:1.6rem;color:inherit}
+/* hero */
+.hero{background:var(--olive);color:#f7f1e3;padding:70px 0 90px;overflow:hidden;min-height:calc(100vh - 68px);display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3rem,8vw,6.6rem);letter-spacing:-.02em}
+.hero p{font-size:1.2rem;max-width:30em;opacity:.85;margin:22px 0 30px}
+.hero .info{margin-top:30px;font-size:.92rem;opacity:.7}
+.stage{position:relative;aspect-ratio:1;max-width:500px;margin:auto;width:100%}
+.disc{position:absolute;inset:6%;border-radius:50%;background:var(--beige);display:grid;place-items:center;font-size:min(14rem,34vw);box-shadow:0 40px 80px rgba(0,0,0,.3);animation:float 7s ease-in-out infinite}
+.ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold)}
+.chip{position:absolute;background:var(--cream);color:var(--brown);border-radius:16px;padding:10px 16px;font-size:.88rem;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+@keyframes float{50%{transform:translateY(-12px)}}
+/* flow */
+.flow{background:var(--brown);color:#f7f1e3;padding:44px 0}
+.flow .wrap{display:flex;flex-wrap:wrap;gap:18px 34px;align-items:center;justify-content:space-between}
+.flow h3{font-size:1.7rem;max-width:12em}
+.steps{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.steps span{border:1px solid rgba(247,241,227,.35);border-radius:99px;padding:8px 16px;font-size:.9rem}
+.steps i{color:var(--gold);font-style:normal}
+/* about */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.vis{aspect-ratio:4/5;border-radius:220px 220px 24px 24px;background:linear-gradient(160deg,var(--beige),#cdbb94);display:grid;place-items:center;font-size:9rem;position:relative}
+.vis small{position:absolute;bottom:22px;font:italic 1.1rem var(--sf);color:var(--brown)}
+.stats{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+.stats b{display:block;font:1.5rem var(--sf);color:var(--olive2)}
+/* menu */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
+.tab{background:none;border:1px solid var(--line);border-radius:99px;padding:10px 20px;color:inherit}
+.tab.on{background:var(--olive);color:#f7f1e3;border-color:var(--olive)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px}
+.prod{display:flex;flex-direction:column}
+.pimg{aspect-ratio:1;border-radius:22px;display:grid;place-items:center;font-size:4.5rem;margin-bottom:14px;transition:transform .3s}
+.prod:hover .pimg{transform:scale(1.03) rotate(-1.5deg)}
+.prod h3{font-size:1.3rem}
+.prod p{margin:4px 0 12px;font-size:.92rem;color:var(--mut);flex:1}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.price{font:600 1.1rem var(--sf)}
+/* signature */
+.sig{background:var(--olive);color:#f7f1e3}
+.sig .vis{background:radial-gradient(circle at 50% 40%,#f0b7b0,#c4565e);border-radius:50%;aspect-ratio:1;font-size:10rem;box-shadow:0 0 0 14px rgba(184,150,63,.35)}
+.disc svg{width:80%;height:auto}.vis svg{width:68%;height:auto}.pimg svg{width:78%;height:78%}.ci svg{width:48px;height:48px}.tw td svg{width:40px;height:40px}.gi svg{width:62%;height:62%}.pimg,.gi{background-image:radial-gradient(circle at 50% 30%,rgba(255,255,255,.65),transparent 62%),linear-gradient(transparent 70%,rgba(74,48,34,.12))}#guide{position:fixed;left:16px;bottom:16px;z-index:34;background:var(--gold);color:#201808;border:0;border-radius:99px;padding:12px 18px;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.25)}.gstep{display:flex;gap:12px;margin:12px 0}.gstep b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--olive);color:#f7f1e3;display:grid;place-items:center;font-size:.85rem}@media(max-width:860px){#guide{bottom:84px}}.sig li{margin:4px 0}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.gi{aspect-ratio:1;border-radius:18px;display:grid;place-items:center;font-size:4rem;position:relative;overflow:hidden}
+.gi:after{content:"Instagram";position:absolute;inset:0;background:rgba(59,74,47,.82);color:#f7f1e3;display:grid;place-items:center;opacity:0;transition:.3s;font:1.1rem var(--sf)}
+.gi:hover:after{opacity:1}
+.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:34px;margin-top:40px}
+.quotes q{font:1.25rem/1.4 var(--sf);display:block}
+.ev{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin:36px 0;border-top:1px solid var(--line)}
+.ev div{padding:26px 18px 26px 0;border-bottom:1px solid var(--line)}
+.ev h3{font-size:1.4rem}
+footer{background:var(--brown);color:#f1e7d3;padding:64px 0 30px}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer a{display:block;text-decoration:none;opacity:.8;margin:4px 0}
+.copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* drawer & modal */
+.veil{position:fixed;inset:0;background:rgba(20,15,10,.5);z-index:40;display:none}
+.veil.on{display:block}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--bg);z-index:41;transform:translateX(105%);transition:transform .35s;display:flex;flex-direction:column;padding:22px}
+#drawer.on{transform:none}
+#items{flex:1;overflow:auto}
+.ci{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:none;color:inherit}
+.tot div{display:flex;justify-content:space-between;margin:4px 0}
+.modal{position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:16px;background:rgba(20,15,10,.55);overflow:auto}
+.modal.on{display:grid}
+.mbox{background:var(--bg);border-radius:24px;padding:28px;width:min(560px,100%);max-height:94vh;overflow:auto}
+label{display:block;font-size:.85rem;margin:12px 0 4px;color:var(--mut)}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.done{text-align:center}.done h2{font-size:2.4rem}
+#bar{display:none}
+/* admin */
+#admin{display:none;min-height:100vh}
+.ad{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+.side{background:var(--olive);color:#f7f1e3;padding:22px 14px;position:sticky;top:0;height:100vh}
+.side .logo{display:block;padding:0 10px 20px}
+.side button{display:block;width:100%;text-align:left;background:none;border:0;color:inherit;padding:11px 14px;border-radius:12px;opacity:.8}
+.side button.on,.side button:hover{background:rgba(255,255,255,.12);opacity:1}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid var(--line);gap:12px;flex-wrap:wrap}
+.main{padding:28px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:26px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.kpi b{display:block;font:2rem var(--sf)}
+.tw{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:18px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:var(--mut);font-weight:500}
+.tools{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}.tools input,.tools select{width:auto;flex:1;min-width:160px}
+.badge{padding:3px 11px;border-radius:99px;font-size:.8rem;background:var(--beige)}
+.bars{display:flex;align-items:flex-end;gap:12px;height:220px;padding:20px;background:var(--card);border:1px solid var(--line);border-radius:18px}
+.bars div{flex:1;background:linear-gradient(var(--gold),var(--olive2));border-radius:8px 8px 0 0;position:relative;text-align:center;transition:height .6s}
+.bars span{position:absolute;top:-22px;left:0;right:0;font-size:.78rem}
+.bars em{position:absolute;bottom:-24px;left:0;right:0;font-size:.78rem;font-style:normal;color:var(--mut)}
+.hb{margin:10px 0}.hb i{display:block;height:10px;border-radius:9px;background:var(--olive2);margin-top:4px}
+@media(max-width:860px){
+.links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--bg);padding:20px;border-bottom:1px solid var(--line);margin:0}
+.links.on{display:flex}#burger{display:block;margin-left:auto}
+nav .wrap{gap:10px}
+.hero .wrap,.split,footer .wrap{grid-template-columns:1fr}
+.stage{max-width:320px}section{padding:64px 0}
+.gal{grid-template-columns:repeat(2,1fr)}
+#bar{display:flex;position:fixed;bottom:calc(10px + env(safe-area-inset-bottom,0px));left:12px;right:12px;z-index:35;background:var(--olive);color:#f7f1e3;border:0;border-radius:99px;padding:16px 24px;justify-content:space-between;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.ad{grid-template-columns:1fr}.side{position:static;height:auto;display:flex;overflow-x:auto;padding:10px}.side .logo{display:none}.side button{width:auto;white-space:nowrap}
+.two{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;z-index:1}.vis{overflow:hidden}.vis small{position:relative;z-index:2}.disc{overflow:hidden}.disc .ph{border-radius:50%}
+
+/* ===== mobile responsive pass ===== */
+html{-webkit-text-size-adjust:100%}body{overflow-x:hidden}img,svg{max-width:100%}
+.vis small{position:absolute;z-index:2;left:0;right:0;text-align:center;padding:0 14px}
+#drawer{overscroll-behavior:contain;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.side{scrollbar-width:none}.side::-webkit-scrollbar{display:none}
+@media(max-width:860px){
+nav .wrap{height:60px}.links{top:100%;box-shadow:0 18px 30px rgba(0,0,0,.12);gap:6px}.links a{padding:10px 4px;font-size:1.05rem}.links a.btn{text-align:center;margin-top:6px}
+#burger,#cartBtn{width:44px;height:44px;display:grid;place-items:center;padding:0}#burger{display:grid}
+#cartBtn{flex:none}
+.hero{min-height:0;padding:44px 0 64px;text-align:center}.hero p{margin:18px auto 26px}.hero h1{font-size:clamp(2.6rem,12vw,4rem)}
+.hero .btn{margin:5px 3px}.hero .info{margin-top:22px}
+.stage{max-width:300px;margin-top:10px}.chip{font-size:.74rem;padding:7px 11px;border-radius:12px}
+.flow{padding:34px 0}.flow h3{font-size:1.45rem;max-width:none}.steps span{font-size:.8rem;padding:6px 12px}
+.vis{max-width:340px;width:100%;margin:0 auto;font-size:6rem}.sig .vis{max-width:300px;box-shadow:0 0 0 10px rgba(184,150,63,.35)}
+.split{gap:34px}.stats{gap:22px}
+.tabs{flex-wrap:nowrap;overflow-x:auto;margin:22px -22px;padding:2px 22px 6px}.tab{white-space:nowrap;flex:none;min-height:42px}
+.grid{grid-template-columns:repeat(2,1fr);gap:22px 14px}.pimg{border-radius:16px;margin-bottom:10px}
+.prod h3{font-size:1.05rem;line-height:1.2}.prod p{font-size:.82rem;margin:4px 0 10px}
+.prod .row{flex-direction:column;align-items:stretch;gap:8px}.prod .row .btn{width:100%;text-align:center;min-height:42px}
+.quotes{gap:24px}.ev div{padding:20px 12px 20px 0}
+footer{padding:48px 0 120px}.copy{flex-direction:column}
+#guide{font-size:.8rem;padding:9px 14px;left:12px;bottom:84px}
+.btn{min-height:44px}.btn.sm{min-height:40px}
+input,select,textarea{font-size:16px}
+.mbox{padding:22px 18px;border-radius:20px;max-height:92dvh}.modal{padding:10px;place-items:end center}
+#drawer{width:100%}
+/* admin */
+.side{position:sticky;top:0;z-index:25;display:flex;align-items:center;gap:4px;padding:8px 10px;height:auto}
+#nav{display:flex;gap:4px}.side button{padding:10px 14px;min-height:44px;font-size:.92rem}
+.top{padding:12px 16px}.main{padding:18px 16px 40px}#am>h2{font-size:1.7rem!important;margin-bottom:14px!important}
+.kpis{grid-template-columns:repeat(2,1fr);gap:10px}.kpi{padding:14px;border-radius:14px}.kpi b{font-size:1.5rem}
+.tools input,.tools select{min-width:0;flex:1 1 100%}
+.bars{gap:6px;padding:16px 10px;height:200px}.bars span{font-size:.66rem;top:-18px}.bars em{font-size:.68rem}
+.gal[style]{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:640px){
+.tw{overflow:visible;background:none;border:0}
+.tw table,.tw tbody,.tw tr,.tw td{display:block;width:100%}
+.tw tr.hd{display:none}
+.tw tr{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;padding:6px 14px}
+.tw td{display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:right;white-space:normal;padding:9px 0;border-bottom:1px dashed var(--line)}
+.tw td:last-child{border-bottom:0}
+.tw td[data-label]:not([data-label=""])::before{content:attr(data-label);color:var(--mut);font-size:.8rem;text-align:left;flex:none}
+.tw td[colspan]{display:block;text-align:center}
+.tw td select{min-height:40px}.tw td .btn{flex:none}
+.tw td:has(.btn.o){flex-wrap:wrap;justify-content:flex-end}
+}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.prod .row{flex-direction:row;align-items:center}.prod .row .btn{width:auto}.kpis{grid-template-columns:1fr}.gal{gap:8px}}
+@media(min-width:520px) and (max-width:860px){.gal{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:860px){#bar{display:none!important}body.hc #bar{display:flex!important}#guide{bottom:16px}body.hc #guide{bottom:84px}}
+</style>
+</head>
+<body>
+<div id="site">
+<nav><div class="wrap"><a class="logo" href="#home">MUSSA</a>
+<button id="burger" aria-label="Menu" onclick="$('#links').classList.toggle('on')">&#9776;</button>
+<div class="links" id="links" onclick="this.classList.remove('on')">
+<a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+<a class="btn sm g" href="#menu">Order Now</a></div>
+<button id="cartBtn" aria-label="Open cart" onclick="openCart()">&#128717;<span id="cartCount">0</span></button></div></nav>
+
+<header class="hero" id="home"><div class="wrap"><div>
+<h1>Your Daily Cup, Made Special.</h1>
+<p>Specialty coffee, matcha &amp; refreshing drinks handcrafted in Ramona.</p>
+<a class="btn g" href="#menu">Order Online</a> <a class="btn o" href="#menu">Explore Menu</a>
+<div class="info">Fri&ndash;Sun &bull; 12 PM&ndash;7 PM &bull; Ramona, CA</div></div>
+<div class="stage"><div class="ring"></div><div class="disc" id="heroArt"></div>
+<div class="chip" style="top:8%;right:-2%">Strawberry Matcha</div><div class="chip" style="bottom:10%;left:-4%">Brown Sugar Latte</div></div></div></header>
+
+<div class="flow"><div class="wrap"><h3>From Instagram to Order &mdash; One Simple Experience.</h3>
+<div class="steps"><span>Instagram</span><i>&rarr;</i><span>Website</span><i>&rarr;</i><span>Menu</span><i>&rarr;</i><span>Online Order</span><i>&rarr;</i><span>Customer</span><i>&rarr;</i><span>Admin Dashboard</span></div></div></div>
+
+<section style="padding:70px 0"><div class="wrap"><h2>A digital upgrade, not just a website.</h2>
+<div class="ev"><div><h3>Orders while you're busy</h3><p class="mut">Customers pick a drink and a pickup time. No DM back-and-forth.</p></div><div><h3>One link for Instagram</h3><p class="mut">Put it in your bio and every post becomes a way to order.</p></div><div><h3>Know your regulars</h3><p class="mut">Every order builds a customer list that belongs to MUSSA.</p></div><div><h3>Run it from your phone</h3><p class="mut">Update the menu, mark sell-outs and change photos in seconds.</p></div></div></div></section>
+<section id="about"><div class="wrap split"><div class="vis" id="aboutArt"><small>Poured at home, shared with Ramona</small></div>
+<div><h2>More Than Coffee.</h2>
+<p class="mut" style="font-size:1.1rem;margin:22px 0">MUSSA is a home-based coffee bar built around handcrafted drinks and quality ingredients. Every latte, matcha and refresher is made to order, so each cup feels like a small gift for our neighbors in Ramona.</p>
+<div class="stats"><div><b>100%</b>Handcrafted</div><div><b>Local</b>Favorite</div><div><b>Fresh</b>Ingredients</div></div></div></div></section>
+
+<section id="menu" style="background:var(--card)"><div class="wrap"><h2>The Menu</h2>
+<p class="mut">Café, matcha and refreshers, made fresh Friday through Sunday.</p>
+<div class="tabs" id="tabs"></div><div class="grid" id="mgrid"></div></div></section>
+
+<section class="sig"><div class="wrap split"><div class="vis" id="sigVis"></div>
+<div><h2>MUSSA Signature</h2><h3 style="font-size:2rem;margin:18px 0 8px;color:var(--gold)">Strawberry Matcha</h3>
+<p style="opacity:.85">Ceremonial matcha whisked to order, over strawberry puree and silky milk. Our most-ordered drink.</p>
+<ul style="padding-left:18px;opacity:.85"><li>Ceremonial-grade matcha</li><li>House strawberry puree</li><li>Your choice of milk</li><li>Gold-standard ice</li></ul>
+<p class="price" style="font-size:1.8rem" id="sigPrice"></p><button class="btn g" onclick="add(findByName('Strawberry Matcha'))">Add to Order</button></div></div></section>
+
+<section id="gallery"><div class="wrap"><div class="row" style="align-items:end;flex-wrap:wrap"><h2>On the Gram</h2>
+<a class="btn o sm" href="https://instagram.com/mussa.coffebar" target="_blank" rel="noopener">Follow @mussa.coffebar</a></div>
+<div class="gal" id="cgal"></div>
+<div class="quotes">
+<div><q>Absolutely loved the strawberry matcha. The presentation and flavor were amazing.</q><p class="mut">Daniela R., Ramona</p></div>
+<div><q>The Spanish latte is the best I've had in San Diego County. Worth the drive.</q><p class="mut">Marcus T., Escondido</p></div>
+<div><q>We ordered drinks for our baby shower and every guest asked where they came from.</q><p class="mut">Priya &amp; Sam K.</p></div>
+<div><q>Pan de Muerto and a vanilla matcha on a Sunday afternoon. Perfect.</q><p class="mut">Lucia M., Poway</p></div></div></div></section>
+
+<section id="events" style="background:var(--beige)"><div class="wrap"><h2>Bring MUSSA to Your Table</h2>
+<div class="ev"><div><h3>Private Events</h3><p class="mut">Birthdays, showers and small gatherings.</p></div><div><h3>Pop-ups</h3><p class="mut">Find us at local markets around Ramona.</p></div><div><h3>Seasonal Events</h3><p class="mut">Fall, holiday and Día de Muertos menus.</p></div><div><h3>Custom Drink Catering</h3><p class="mut">A tailored menu for 20 to 200 guests.</p></div></div>
+<a class="btn" href="#contact">Plan Your Event</a></div></section>
+
+<section id="contact"><div class="wrap split"><div><h2>Visit MUSSA</h2>
+<p style="font:1.5rem var(--sf);margin:22px 0 4px">MUSSA Coffee Bar</p><p class="mut">Ramona, California<br>Friday&ndash;Sunday, 12 PM&ndash;7 PM</p><p>Pickup only. Order ahead and skip the wait.</p></div>
+<div style="display:grid;gap:12px;align-content:center"><a class="btn" href="https://wa.me/10000000000" target="_blank" rel="noopener">Order on WhatsApp</a><a class="btn o" href="https://instagram.com/mussa.coffebar" target="_blank" rel="noopener">Instagram</a><a class="btn o" href="https://maps.google.com/?q=Ramona,CA" target="_blank" rel="noopener">Get Directions</a></div></div></section>
+
+<footer><div class="wrap"><div><div class="logo">MUSSA Coffee Bar</div><p style="font:italic 1.2rem var(--sf)">Crafted locally. Served with intention.</p><p class="mut" style="color:#cbbd9e">Friday&ndash;Sunday<br>12 PM&ndash;7 PM</p></div>
+<div><a href="#menu">Menu</a><a href="#menu">Order</a><a href="#events">Events</a><a href="#gallery">Instagram</a><a href="#contact">Contact</a></div>
+<div><button class="btn g sm" onclick="view('admin')">View Admin Demo</button></div>
+<div class="copy"><span>&copy; 2026 MUSSA Coffee Bar</span><span>Demo website, sample content</span></div></div></footer>
+<button id="guide" onclick="tour()">Demo guide</button>
+<button id="bar" onclick="openCart()"><span id="barN">View order</span><span id="barT">$0.00</span></button>
+</div>
+
+<div class="veil" id="veil" onclick="closeAll()"></div>
+<aside id="drawer"><div class="row"><h3 style="font-size:1.8rem">Your Order</h3><button class="tab" onclick="closeAll()">Close</button></div>
+<div id="items"></div><div class="tot" id="tot"></div><button class="btn" style="margin-top:12px" onclick="checkout()">Checkout</button></aside>
+<div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
+
+<div id="admin"><div class="ad"><div class="side"><a class="logo" href="#">MUSSA</a><div id="nav"></div><button onclick="view('site')">&larr; Customer site</button></div>
+<div><div class="top"><div><b>Admin Demo</b> <span class="mut">Sample data only</span></div><button class="btn sm" onclick="resetDemo()">Reset demo data</button></div><div class="main" id="am"></div></div></div></div>
+
+<script>
+const $=s=>document.querySelector(s),money=n=>'$'+n.toFixed(2),TAX=.0775;
+const load=(k,d)=>{try{const v=localStorage.getItem('mussa_'+k);return v?JSON.parse(v):d}catch(e){return d}};
+const save=()=>{try{['P','O','C','G','N'].forEach(k=>localStorage.setItem('mussa_'+k,JSON.stringify(S[k])))}catch(e){}};
+const COL={Coffee:'#d9bf9b',Matcha:'#cddcab',Refreshers:'#f4c6b8',Seasonal:'#f0d9a0',Pastries:'#e8cfa6'};
+const seed=()=>({
+P:[['Iced Vanilla Latte','Coffee','Double espresso, house vanilla, cold milk.',6.5,'🥛'],['Brown Sugar Latte','Coffee','Slow-cooked brown sugar syrup with oat or whole milk.',6.75,'☕'],['Spanish Latte','Coffee','Espresso with sweetened condensed milk, served over ice.',6.75,'🧋'],['Mocha','Coffee','Dark chocolate sauce, espresso and steamed milk.',6.5,'🍫'],['Cold Brew','Coffee','Steeped 18 hours. Smooth and bold.',5.5,'🧊'],
+['Strawberry Matcha','Matcha','Ceremonial matcha over strawberry puree and milk.',7.25,'🍓'],['Vanilla Matcha','Matcha','Whisked matcha with Madagascar vanilla.',6.75,'🍵'],['Iced Matcha Latte','Matcha','Classic and earthy, lightly sweetened.',6.5,'🥬'],['Coconut Matcha','Matcha','Matcha with coconut milk and toasted coconut.',7,'🥥'],
+['Strawberry Refresher','Refreshers','Fresh strawberry, lemon and sparkling water.',5.75,'🍓'],['Mango Refresher','Refreshers','Ripe mango, lime and a touch of honey.',5.75,'🥭'],['Passion Fruit Refresher','Refreshers','Tropical passion fruit with mint.',5.75,'🍹'],
+['Seasonal Signature Drink','Seasonal','Our rotating house creation. Ask what is pouring.',7.5,'✨'],['Pumpkin Spice Latte','Seasonal','Real pumpkin, warm spices, whipped cream.',7,'🎃'],['Special Matcha','Seasonal','Limited-run matcha with a seasonal twist.',7.5,'🍂'],
+['Pan de Muerto','Pastries','Traditional sweet bread with orange blossom.',4.5,'🍞'],['Strawberry Croissant','Pastries','Buttery croissant with strawberry cream.',5.5,'🥐'],['Seasonal Pastry','Pastries','Baked fresh each weekend.',4.75,'🧁']].map((a,i)=>({id:i+1,n:a[0],c:a[1],d:a[2],p:a[3],e:a[4],a:true})),
+O:[['MUSSA-1042','Ana Torres','Strawberry Matcha x2',14.5,'1:30 PM','Pending'],['MUSSA-1043','Josh Lee','Spanish Latte, Pan de Muerto',11.25,'2:00 PM','Preparing'],['MUSSA-1044','Maya Patel','Mango Refresher x3',17.25,'2:15 PM','Ready'],['MUSSA-1045','Chris Gómez','Iced Vanilla Latte',6.5,'12:45 PM','Completed'],['MUSSA-1046','Sofia Ruiz','Coconut Matcha, Strawberry Croissant',12.5,'3:00 PM','Pending'],['MUSSA-1047','Ben Carter','Cold Brew',5.5,'1:00 PM','Cancelled']].map(a=>({id:a[0],cu:a[1],it:a[2],t:a[3],pt:a[4],s:a[5]})),
+C:[['Ana Torres','(760) 555-0142',12,148.5,'Today'],['Josh Lee','(619) 555-0178',7,81.25,'Today'],['Maya Patel','(858) 555-0119',9,102,'Today'],['Sofia Ruiz','(760) 555-0163',5,57.75,'Yesterday'],['Chris Gómez','(442) 555-0126',15,176,'Sun'],['Ben Carter','(760) 555-0191',3,31.5,'Sun']].map(a=>({n:a[0],ph:a[1],o:a[2],sp:a[3],l:a[4]})),
+G:[['🍓','Strawberry matcha'],['🥐','Fresh croissants'],['☕','Latte art'],['🥭','Mango refresher'],['🏡','Our Ramona corner'],['🍞','Pan de Muerto'],['🍵','Matcha whisk'],['🧋','Spanish latte'],['🎃','Fall menu']].map((a,i)=>({e:a[0],t:a[1],f:i==0})),
+N:1048});
+const S={};const D=seed();Object.keys(D).forEach(k=>S[k]=load(k,D[k]));
+const FL=(t,l)=>'https://loremflickr.com/640/640/'+t+'/all?lock='+l;
+const IMG={'Iced Vanilla Latte':FL('iced,latte,coffee',11),'Brown Sugar Latte':FL('latte,coffee,cup',12),'Spanish Latte':FL('iced,coffee,glass',13),'Mocha':FL('mocha,coffee,chocolate',14),'Cold Brew':FL('coldbrew,iced,coffee',15),
+'Strawberry Matcha':FL('strawberry,matcha',21),'Vanilla Matcha':FL('matcha,latte',22),'Iced Matcha Latte':FL('iced,matcha',23),'Coconut Matcha':FL('matcha,drink',24),
+'Strawberry Refresher':FL('strawberry,drink,glass',31),'Mango Refresher':FL('mango,juice,glass',32),'Passion Fruit Refresher':FL('passionfruit,drink',33),
+'Seasonal Signature Drink':FL('latte,art,cafe',41),'Pumpkin Spice Latte':FL('pumpkin,spice,latte',42),'Special Matcha':FL('matcha,tea,cup',43),
+'Pan de Muerto':FL('pandemuerto,bread',51),'Strawberry Croissant':FL('croissant,strawberry',52),'Seasonal Pastry':FL('pastry,bakery',53)};
+const GIMG={'Strawberry matcha':IMG['Strawberry Matcha'],'Fresh croissants':FL('croissant,bakery',61),'Latte art':FL('latteart,coffee',62),'Mango refresher':IMG['Mango Refresher'],'Our Ramona corner':FL('coffee,shop,cafe',63),'Pan de Muerto':IMG['Pan de Muerto'],'Matcha whisk':FL('matcha,whisk',64),'Spanish latte':IMG['Spanish Latte'],'Fall menu':FL('pumpkin,autumn,coffee',65)};
+S.P.forEach(p=>{if(!p.im&&IMG[p.n])p.im=IMG[p.n]});S.G.forEach(g=>{if(!g.im&&GIMG[g.t])g.im=GIMG[g.t]});
+const FB='onerror="this.outerHTML=art({n:this.dataset.n,c:this.dataset.c})"';
+const PH=(src,n,cls)=>`<img class="ph ${cls||''}" src="${src}" alt="${n}" loading="lazy" data-n="${n}" onerror="this.remove()">`;
+
+let nw=false,cart=[],cat='All',oq='',of='All',cq='',tab='Dashboard';
+let _u=0;
+function art(p){const n=p.n||'',m=n.toLowerCase(),u='c'+(_u++);
+if(/croissant|pan de|pastry/i.test(n)||p.c=='Pastries'){const sh='<ellipse cx="100" cy="152" rx="70" ry="9" fill="rgba(0,0,0,.14)"/>';
+return /croissant/i.test(n)?`<svg viewBox="0 0 200 200">${sh}<path d="M25 135 Q40 65 100 58 Q160 65 175 135 Q150 112 135 126 Q118 104 100 126 Q82 104 65 126 Q50 112 25 135Z" fill="#d9993f"/><path d="M100 62V120M72 72L80 120M128 72L120 120" stroke="#b9772a" stroke-width="5" fill="none"/><path d="M55 108Q100 76 145 108" stroke="#f0cf8a" stroke-width="5" fill="none" opacity=".7"/>${/strawberry/i.test(n)?'<circle cx="100" cy="70" r="9" fill="#e45a6f"/>':''}</svg>`:`<svg viewBox="0 0 200 200">${sh}<path d="M30 140Q30 62 100 62Q170 62 170 140Z" fill="#d9a35a"/><path d="M58 138Q72 84 100 68M100 138V66M142 138Q128 84 100 68" stroke="#f3d9a0" stroke-width="8" fill="none" stroke-linecap="round"/><rect x="82" y="56" width="36" height="9" rx="4" fill="#fff6e0" opacity=".85"/></svg>`}
+let t='#7a4e35',b='#ecdcc2';
+if(m.includes('matcha')){t='#86a653';b=m.includes('strawberry')?'#e45a6f':'#efe6cf'}
+else if(m.includes('strawberry')){t='#e45a6f';b='#f6c8cf'}
+else if(m.includes('mango')){t='#f2a93b';b='#fbd98a'}
+else if(m.includes('passion')){t='#e77d3a';b='#f6c28a'}
+else if(m.includes('mocha')){t='#4b2c20';b='#c9a27c'}
+else if(m.includes('cold brew')){t='#2e1c14';b='#5a3a28'}
+else if(m.includes('pumpkin')||m.includes('fall')){t='#c9772e';b='#f0d3a8'}
+else if(m.includes('seasonal')){t='#b8963f';b='#f2e3b5'}
+else if(m.includes('spanish')){t='#8a5a3a';b='#f4e6c8'}
+else if(m.includes('vanilla')){t='#a8794f';b='#f6ead2'}
+const g=m.includes('strawberry')?'<circle cx="138" cy="55" r="12" fill="#e45a6f"/><circle cx="138" cy="55" r="6" fill="#f9c5cc"/>':m.includes('mango')?'<circle cx="138" cy="55" r="12" fill="#f2a93b"/><circle cx="138" cy="55" r="7" fill="#fbd98a"/>':m.includes('passion')?'<circle cx="138" cy="55" r="12" fill="#e77d3a"/><circle cx="138" cy="55" r="6" fill="#f6e3a8"/>':'';
+return `<svg viewBox="0 0 200 200"><defs><clipPath id="${u}"><path d="M62 62H138L128 176Q127 182 120 182H80Q73 182 72 176Z"/></clipPath><linearGradient id="${u}t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t}"/><stop offset="1" stop-color="${t}" stop-opacity=".78"/></linearGradient><linearGradient id="${u}b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${b}" stop-opacity=".85"/><stop offset="1" stop-color="${b}"/></linearGradient><linearGradient id="${u}g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".28" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".2"/></linearGradient></defs><ellipse cx="102" cy="186" rx="54" ry="6" fill="#000" opacity=".22"/><g clip-path="url(#${u})"><rect x="50" y="55" width="100" height="130" fill="url(#${u}b)"/><path d="M50 80Q72 70 100 81T150 76V124Q125 134 100 121T50 127Z" fill="url(#${u}t)"/><path d="M50 62H150V82Q100 92 50 82Z" fill="${t}"/><g fill="#fff" fill-opacity=".24" stroke="#fff" stroke-opacity=".7" stroke-width="1.5"><rect x="76" y="84" width="22" height="22" rx="5" transform="rotate(14 87 95)"/><rect x="106" y="104" width="20" height="20" rx="5" transform="rotate(-12 116 114)"/><rect x="82" y="128" width="20" height="20" rx="5" transform="rotate(8 92 138)"/></g><rect x="50" y="55" width="100" height="130" fill="url(#${u}g)"/></g><path d="M62 62H138L128 176Q127 182 120 182H80Q73 182 72 176Z" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="2"/><path d="M114 50L131 8" stroke="#b8963f" stroke-width="7" stroke-linecap="round"/><path d="M114 50L131 8" stroke="#fbf6ea" stroke-width="3" stroke-dasharray="5 6"/><rect x="55" y="49" width="90" height="15" rx="7.5" fill="#fbf6ea"/><rect x="58" y="51" width="84" height="4" rx="2" fill="#fff"/>${g}</svg>`}
+const findByName=n=>S.P.find(p=>p.n===n)||S.P[5];
+/* customer */
+function renderMenu(){const cats=['All','Coffee','Matcha','Refreshers','Seasonal','Pastries'];
+$('#tabs').innerHTML=cats.map(c=>`<button class="tab ${c==cat?'on':''}" onclick="cat='${c}';renderMenu()">${c}</button>`).join('');
+$('#mgrid').innerHTML=S.P.filter(p=>p.a&&(cat=='All'||p.c==cat)).map(p=>`<div class="prod"><div class="pimg" style="background-color:${COL[p.c]||'#ddd'}">${p.im?`<img src="${p.im}" alt="${p.n}" loading="lazy" data-n="${p.n}" data-c="${p.c}" ${FB} style="width:100%;height:100%;object-fit:cover;border-radius:22px">`:art(p)}</div><h3>${p.n}</h3><p>${p.d}</p><div class="row"><span class="price">${money(p.p)}</span><button class="btn sm" onclick="add(${p.id})">Add to Order</button></div></div>`).join('');}
+function renderGal(){$('#cgal').innerHTML=S.G.map((g,i)=>`<div class="gi" style="background-color:${Object.values(COL)[i%5]}" title="${g.t}">${g.im?`<img src="${g.im}" alt="${g.t}" loading="lazy" data-n="${g.t}" data-c="x" ${FB} style="width:100%;height:100%;object-fit:cover">`:art({n:g.t,c:'x'})}</div>`).join('');$('#sigPrice').textContent=money(findByName('Strawberry Matcha').p)}
+const sum=()=>cart.reduce((a,c)=>a+c.p*c.q,0);
+function add(x){const p=typeof x=='object'?x:S.P.find(p=>p.id==x);if(!p)return;const c=cart.find(c=>c.id==p.id);c?c.q++:cart.push({id:p.id,n:p.n,p:p.p,e:p.e,q:1});drawCart();const b=$('#cartBtn');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+function qty(id,d){const c=cart.find(c=>c.id==id);c.q+=d;if(c.q<1)cart=cart.filter(x=>x.id!=id);drawCart()}
+function drawCart(){const n=cart.reduce((a,c)=>a+c.q,0),s=sum();$('#cartCount').textContent=n;document.body.classList.toggle('hc',n>0);$('#barN').textContent=n?`View order (${n})`:'Your order is empty';$('#barT').textContent=money(s*(1+TAX));
+$('#items').innerHTML=cart.length?cart.map(c=>`<div class="ci"><span>${art(S.P.find(x=>x.id==c.id)||c)}</span><div><b>${c.n}</b><div class="qty"><button onclick="qty(${c.id},-1)">-</button> ${c.q} <button onclick="qty(${c.id},1)">+</button> <button onclick="cart=cart.filter(x=>x.id!=${c.id});drawCart()" style="width:auto;padding:0 10px;border-radius:99px">Remove</button></div></div><span>${money(c.p*c.q)}</span></div>`).join(''):'<p class="mut">Your order is empty. Add a drink from the menu to get started.</p>';
+$('#tot').innerHTML=`<div><span>Subtotal</span><span>${money(s)}</span></div><div><span>Estimated tax (7.75%)</span><span>${money(s*TAX)}</span></div><div><b>Total</b><b>${money(s*(1+TAX))}</b></div>`}
+function openCart(){$('#veil').classList.add('on');$('#drawer').classList.add('on')}
+function closeAll(){$('#veil').classList.remove('on');$('#drawer').classList.remove('on');$('#modal').classList.remove('on')}
+function tour(){modal(`<h2 style="font-size:2rem">Try the full journey</h2><p class="mut">See what MUSSA's customers and MUSSA's team would experience.</p><div class="gstep"><b>1</b><span>Add a few drinks and place a pickup order.</span></div><div class="gstep"><b>2</b><span>Open the Admin Demo. Your order is already waiting under Orders.</span></div><div class="gstep"><b>3</b><span>Change its status to Ready, like a real pickup.</span></div><div class="gstep"><b>4</b><span>Add a product with your own photo and see it appear on the menu.</span></div><div class="row" style="margin-top:18px"><button class="btn o" onclick="closeAll();tab='Menu';view('admin')">Open Admin Demo</button><button class="btn" onclick="closeAll();location.hash='#menu'">Start ordering</button></div>`)}
+function modal(h){$('#mbox').innerHTML=h;$('#modal').classList.add('on')}
+function checkout(){if(!cart.length)return;closeAll();const s=sum(),d=new Date(Date.now()+864e5).toISOString().slice(0,10);
+modal(`<h2 style="font-size:2rem">Checkout</h2><label>Order type</label><label style="color:var(--ink)"><input type="radio" checked style="width:auto"> Pickup, Ramona, CA</label>
+<div class="two"><div><label>Name</label><input id="cn"></div><div><label>Phone</label><input id="cp" type="tel"></div></div><label>Email</label><input id="ce" type="email">
+<div class="two"><div><label>Pickup date</label><input id="cd" type="date" value="${d}"></div><div><label>Pickup time</label><select id="ct">${['12:00','1:00','2:00','3:00','4:00','5:00','6:00'].map(t=>`<option>${t} PM</option>`).join('')}</select></div></div>
+<label>Special instructions</label><textarea id="ci" rows="2" placeholder="Oat milk, less ice, allergies..."></textarea>
+<div style="margin:16px 0;border-top:1px solid var(--line);padding-top:12px">${cart.map(c=>`<div class="row"><span>${c.q} x ${c.n}</span><span>${money(c.p*c.q)}</span></div>`).join('')}<div class="row"><b>Total with tax</b><b>${money(s*(1+TAX))}</b></div></div>
+<p id="err" style="color:#b3402f;margin:0 0 8px"></p><div class="row"><button class="btn o" onclick="closeAll()">Back</button><button class="btn" onclick="place()">Place Order</button></div>`)}
+function place(){const n=$('#cn').value.trim(),p=$('#cp').value.trim();if(!n||!p){$('#err').textContent='Enter your name and phone so we can confirm your pickup.';return}
+const id='MUSSA-'+S.N++,t=sum()*(1+TAX);S.O.unshift({id,cu:n,it:cart.map(c=>c.n+(c.q>1?' x'+c.q:'')).join(', '),t:+t.toFixed(2),pt:$('#ct').value,s:'Pending'});
+const c=S.C.find(c=>c.n==n);c?(c.o++,c.sp+=t,c.l='Today'):S.C.unshift({n,ph:p,o:1,sp:+t.toFixed(2),l:'Today'});save();nw=true;cart=[];drawCart();
+modal(`<div class="done"><div style="font-size:3rem">&#9989;</div><h2>Order Received</h2><p>Your MUSSA order has been successfully placed.</p><p style="font:1.6rem var(--sf);color:var(--olive2)">${id}</p><p class="mut">Pickup: Ramona, CA</p><button class="btn" onclick="closeAll();tab='Orders';view('admin')">See it in Admin</button> <button class="btn o" onclick="closeAll()">Done</button></div>`)}
+/* admin */
+const ST=['Pending','Preparing','Ready','Completed','Cancelled'],NAV=['Dashboard','Orders','Menu','Customers','Events','Gallery','Analytics','Settings'];
+function view(v){$('#site').style.display=v=='site'?'block':'none';$('#admin').style.display=v=='admin'?'block':'none';scrollTo(0,0);if(v=='admin')adm()}
+function adm(){if(tab=='Orders')nw=false;$('#nav').innerHTML=NAV.map(n=>`<button class="${n==tab?'on':''}" onclick="tab='${n}';adm()">${n}${n=='Orders'&&nw?' <span class="badge" style="background:var(--gold);color:#201808">new</span>':''}</button>`).join('');const f=A[tab];$('#am').innerHTML=`<h2 style="font-size:2.2rem;margin-bottom:20px">${tab}</h2>`+f()}
+const live=()=>S.O.filter(o=>o.s!='Cancelled');
+const A={
+Dashboard:()=>`<div class="kpis"><div class="kpi">Today's Orders<b>${18+S.O.length-6+0}</b></div><div class="kpi">Today's Revenue<b>${money(428.5+S.O.slice(0,S.N-1048).reduce((a,o)=>a+o.t,0))}</b></div><div class="kpi">Pending Orders<b>${S.O.filter(o=>o.s=='Pending').length+5}</b></div><div class="kpi">Customers<b>${180+S.C.length}</b></div></div><h3 style="margin-bottom:12px">Latest orders</h3>`+otable(S.O.slice(0,4)),
+Orders:()=>`<div class="tools"><input placeholder="Search order or customer" value="${oq}" oninput="oq=this.value;$('#ot').innerHTML=otable(fo())"><select onchange="of=this.value;$('#ot').innerHTML=otable(fo())">${['All',...ST].map(s=>`<option ${s==of?'selected':''}>${s}</option>`).join('')}</select></div><div id="ot">${otable(fo())}</div>`,
+Menu:()=>`<div class="tools"><button class="btn sm" onclick="pform()">Add Product</button></div><div class="tw"><table><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Availability</th><th>Actions</th></tr>${S.P.map(p=>`<tr><td style="font-size:1.6rem">${p.im?`<img src="${p.im}" alt="${p.n}" width="36" height="36" data-n="${p.n}" data-c="${p.c}" ${FB} style="border-radius:8px;object-fit:cover">`:art(p)}</td><td>${p.n}</td><td>${p.c}</td><td>${money(p.p)}</td><td><span class="badge">${p.a?'Available':'Sold out'}</span></td><td><button class="btn o sm" onclick="pform(${p.id})">Edit</button> <button class="btn o sm" onclick="tg(${p.id})">Toggle</button> <button class="btn o sm" onclick="del(${p.id})">Delete</button></td></tr>`).join('')}</table></div>`,
+Customers:()=>`<div class="tools"><input placeholder="Search customers" value="${cq}" oninput="cq=this.value;$('#ct2').innerHTML=ctable()"></div><div id="ct2">${ctable()}</div>`,
+Events:()=>`<div class="tw"><table><tr><th>Event</th><th>Type</th><th>Date</th><th>Guests</th><th>Status</th></tr><tr><td>Baby shower, Kim family</td><td>Private</td><td>Oct 18</td><td>40</td><td><span class="badge">Quote sent</span></td></tr><tr><td>Ramona Harvest Market</td><td>Pop-up</td><td>Oct 25</td><td>n/a</td><td><span class="badge">Confirmed</span></td></tr><tr><td>Día de Muertos tasting</td><td>Seasonal</td><td>Nov 1</td><td>60</td><td><span class="badge">Planning</span></td></tr></table></div>`,
+Gallery:()=>`<div class="tools"><button class="btn sm" onclick="gform()">Add Image</button></div><div class="gal" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">${S.G.map((g,i)=>`<div><div class="gi" style="background-color:${Object.values(COL)[i%5]};${g.f?'outline:3px solid var(--gold)':''}">${g.im?`<img src="${g.im}" alt="${g.t}" loading="lazy" data-n="${g.t}" data-c="x" ${FB} style="width:100%;height:100%;object-fit:cover">`:art({n:g.t,c:'x'})}</div><div class="row" style="margin-top:6px"><small>${g.t}${g.f?' (featured)':''}</small></div><button class="btn o sm" onclick="feat(${i})">Feature</button> <button class="btn o sm" onclick="S.G.splice(${i},1);save();adm()">Delete</button></div>`).join('')}</div>`,
+Analytics:()=>{const d=[['Mon',180],['Tue',240],['Wed',210],['Thu',310],['Fri',420],['Sat',580],['Sun',490]],tot=d.reduce((a,x)=>a+x[1],0),top=[['Strawberry Matcha',96],['Iced Vanilla Latte',81],['Strawberry Refresher',64],['Spanish Latte',58]];
+return `<div class="kpis"><div class="kpi">Weekly revenue<b>${money(tot)}</b></div><div class="kpi">Orders<b>148</b></div><div class="kpi">Average order value<b>${money(tot/148)}</b></div></div><h3 style="margin-bottom:34px">Revenue by day</h3><div class="bars">${d.map(x=>`<div style="height:${x[1]/580*100}%"><span>$${x[1]}</span><em>${x[0]}</em></div>`).join('')}</div><h3 style="margin:44px 0 8px">Top products</h3>${top.map(t=>`<div class="hb"><div class="row"><span>${t[0]}</span><span>${t[1]} sold</span></div><i style="width:${t[1]}%"></i></div>`).join('')}`},
+Settings:()=>`<div class="kpi" style="max-width:520px"><label>Business name</label><input value="MUSSA Coffee Bar"><label>Hours</label><input value="Friday to Sunday, 12 PM to 7 PM"><label>Estimated tax rate</label><input value="7.75%"><p class="mut">Settings are display-only in this demo.</p></div>`};
+function fo(){return S.O.filter(o=>(of=='All'||o.s==of)&&(o.id+o.cu).toLowerCase().includes(oq.toLowerCase()))}
+function otable(r){return `<div class="tw"><table><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Pickup Time</th><th>Status</th><th>Actions</th></tr>${r.map(o=>`<tr><td>${o.id}</td><td>${o.cu}</td><td>${o.it}</td><td>${money(o.t)}</td><td>${o.pt}</td><td><span class="badge">${o.s}</span></td><td><select onchange="ost('${o.id}',this.value)" style="width:auto;padding:6px">${ST.map(s=>`<option ${s==o.s?'selected':''}>${s}</option>`).join('')}</select></td></tr>`).join('')||'<tr><td colspan="7" class="mut">No orders match. Clear the search or filter.</td></tr>'}</table></div>`}
+function ctable(){return `<div class="tw"><table><tr><th>Name</th><th>Phone</th><th>Orders</th><th>Total Spent</th><th>Last Order</th></tr>${S.C.filter(c=>(c.n+c.ph).toLowerCase().includes(cq.toLowerCase())).map(c=>`<tr><td>${c.n}</td><td>${c.ph}</td><td>${c.o}</td><td>${money(c.sp)}</td><td>${c.l}</td></tr>`).join('')}</table></div>`}
+function ost(id,s){S.O.find(o=>o.id==id).s=s;save();if(tab=='Dashboard')adm();else{const b=$('#ot');b&&(b.innerHTML=otable(fo()))}}
+function tg(id){const p=S.P.find(p=>p.id==id);p.a=!p.a;save();renderMenu();adm()}
+function del(id){if(confirm('Delete this product?')){S.P=S.P.filter(p=>p.id!=id);save();renderMenu();adm()}}
+function feat(i){S.G.forEach((g,j)=>g.f=i==j);save();adm()}
+function pform(id){const p=S.P.find(p=>p.id==id)||{n:'',c:'Coffee',d:'',p:'',im:'',a:true};
+modal(`<h2 style="font-size:2rem">${id?'Edit':'Add'} Product</h2><label>Product Name</label><input id="fn" value="${p.n}"><label>Category</label><select id="fc">${Object.keys(COL).map(c=>`<option ${c==p.c?'selected':''}>${c}</option>`).join('')}</select><label>Description</label><textarea id="fd" rows="2">${p.d}</textarea><div class="two"><div><label>Price</label><input id="fp" type="number" step=".25" value="${p.p}"></div><div><label>Upload photo</label><input type="file" accept="image/*" onchange="pick(this,'fi')"><input id="fi" type="hidden" value="${p.im||''}"><small id="fip" class="mut"></small></div></div><label style="color:var(--ink)"><input id="fa" type="checkbox" style="width:auto" ${p.a?'checked':''}> Available</label><br><div class="row"><button class="btn o" onclick="closeAll()">Cancel</button><button class="btn" onclick="psave(${id||0})">Save</button></div>`)}
+function psave(id){const v=i=>$('#'+i).value.trim(),n=v('fn'),pr=parseFloat(v('fp'));if(!n||isNaN(pr))return alert('Enter a name and a price.');
+const o={n,c:v('fc'),d:v('fd'),p:pr,im:v('fi'),a:$('#fa').checked};
+if(id)Object.assign(S.P.find(p=>p.id==id),o);else S.P.push({...o,id:Date.now(),e:'☕'});save();closeAll();renderMenu();adm()}
+function gform(){modal(`<h2 style="font-size:2rem">Add Image</h2><label>Caption</label><input id="gt"><label>Photo</label><input type="file" accept="image/*" onchange="pick(this,'gi')"><input id="gi" type="hidden"><small id="gip" class="mut"></small><br><br><div class="row"><button class="btn o" onclick="closeAll()">Cancel</button><button class="btn" onclick="S.G.unshift({e:'',im:$('#gi').value,t:$('#gt').value||'New post',f:false});save();closeAll();renderGal();adm()">Add</button></div>`)}
+function pick(inp,id){const f=inp.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,700/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);$('#'+id).value=c.toDataURL('image/jpeg',.8);$('#'+id+'p').textContent='Photo ready. Press Save.'};im.src=rd.result};rd.readAsDataURL(f)}
+function resetDemo(){try{Object.keys(S).forEach(k=>localStorage.removeItem('mussa_'+k))}catch(e){}Object.assign(S,seed());renderMenu();renderGal();adm()}
+renderMenu();renderGal();drawCart();
+$('#heroArt').innerHTML=art({n:'Strawberry Matcha'});$('#heroArt').insertAdjacentHTML('afterbegin',PH(FL('strawberry,matcha,iced',21),'Strawberry Matcha','hero'));$('#aboutArt').insertAdjacentHTML('afterbegin',art({n:'Strawberry Croissant'}));$('#aboutArt').insertAdjacentHTML('afterbegin',PH(FL('coffee,shop,barista',71),'MUSSA coffee bar'));$('#sigVis').innerHTML=art({n:'Strawberry Matcha'});$('#sigVis').insertAdjacentHTML('afterbegin',PH(FL('strawberry,matcha,glass',21),'Strawberry Matcha'));try{sessionStorage.getItem('tg')||(setTimeout(tour,2500),sessionStorage.setItem('tg',1))}catch(e){}
+
+/* mobile: label table cells so rows can stack as cards */
+function mobTables(){document.querySelectorAll('#am table').forEach(t=>{const hr=[...t.rows].find(r=>r.querySelector('th'));if(!hr)return;hr.classList.add('hd');const L=[...hr.cells].map(c=>c.textContent.trim());[...t.rows].forEach(r=>{if(r===hr)return;[...r.cells].forEach((c,i)=>{if(!c.hasAttribute('colspan'))c.setAttribute('data-label',L[i]||'')})})})}
+try{new MutationObserver(mobTables).observe($('#am'),{childList:true,subtree:true})}catch(e){}
+</script>
+</body>
+</html>
